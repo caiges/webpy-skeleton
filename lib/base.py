@@ -1,5 +1,7 @@
+import os
 from web.contrib.template import render_mako
-        
+
+# Base view for all other views to include (or not).        
 class Base:
 
     # hook up mako, override the render function

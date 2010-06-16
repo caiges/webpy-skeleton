@@ -1,4 +1,4 @@
-from lib import Base
+from lib.base import Base
 
 class Home(Base):
 
