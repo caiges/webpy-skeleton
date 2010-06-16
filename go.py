@@ -3,6 +3,7 @@ import web
 
 from sqlalchemy.orm import scoped_session, sessionmaker
 
+
 from models import *
 from views import *
 
@@ -20,15 +21,13 @@ def load_sqla(handler):
     finally:
         web.ctx.orm.commit()
 
-app = web.application(urls, locals())
-app.add_processor(load_sqla)
 
-
-
+    
 urls = (
     '/(.*)', 'Home'
 )
 
 app = web.application(urls, globals(), autoreload = True)
+app.add_processor(load_sqla)
 
 if __name__ == "__main__" : app.run()
